@@ -1,3 +1,4 @@
+    <a href="{{ route('mainPage') }}">Главная</a>
 @auth
     <a href="{{ route('logout') }}">Выйти</a>
     <a href="{{ url('userpage/'.Auth::user()->id) }}">Личка</a>

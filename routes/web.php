@@ -4,6 +4,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\redirectController;
 use App\Http\Controllers\registrationController;
 use App\Http\Controllers\videoUploadController;
+use App\Models\Video;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -60,3 +61,9 @@ Route::get('addvideo', function(){
     return view('mainpage');
 })->name('videoupload');
 Route::post('addvideo', [videoUploadController::class, 'upload'])->name('videouplaoding');
+
+Route::get('mainpage', function(){
+    Artisan::call('storage:link');
+    $videos = Video::where('restrictions','=','0')->orderBy('id','desc')->paginate(10);
+    return view('mainpage', compact('videos'));
+})->name('mainPage');
