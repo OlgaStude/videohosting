@@ -11,7 +11,7 @@
     <div id="videos_container">
         @foreach($videos as $video)
             <div class="video">
-                <p>{{ $video->title }}</p>
+                <p><a href="{{ url('video/'.$video->id) }}">{{ $video->title }}</a></p>
                 <video src="{{ asset('storage/videos/'.$video->path) }}" controls='true'></video>
                 <p>{{ $video->created_at }}</p>
             </div>

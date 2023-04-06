@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'users_id',
+        'videos_id'    
+    ];
 }

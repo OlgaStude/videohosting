@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\raitingController;
 use App\Http\Controllers\redirectController;
 use App\Http\Controllers\registrationController;
 use App\Http\Controllers\videoUploadController;
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('mainpage');
 });
 
 Route::get('register',function (){
@@ -58,7 +59,7 @@ Route::get('addvideo', function(){
     if(Auth::check()){
         return view('addVideoPage');
     }
-    return view('mainpage');
+    return redirect('mainPage');
 })->name('videoupload');
 Route::post('addvideo', [videoUploadController::class, 'upload'])->name('videouplaoding');
 
@@ -67,3 +68,11 @@ Route::get('mainpage', function(){
     $videos = Video::where('restrictions','=','0')->orderBy('id','desc')->paginate(10);
     return view('mainpage', compact('videos'));
 })->name('mainPage');
+
+Route::get('video/{id}', function($id){
+    $video = Video::find($id);
+    return view('videopage', compact('video'));
+});
+
+Route::get('like', [raitingController::class, 'like'])->name('liked');
+Route::get('dislike', [raitingController::class, 'dislike'])->name('disliked');
