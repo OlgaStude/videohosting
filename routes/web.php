@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\changeStatusController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\raitingController;
 use App\Http\Controllers\redirectController;
@@ -73,11 +74,21 @@ Route::get('mainpage', function(){
 
 Route::get('video/{id}', function($id){
     $video = Video::find($id);
-    $comments = Comment::where('videos_id', '=', $id)->orderBy('id', 'desc')->get();
-    return view('videopage', compact('video', 'comments'));
+    if($video->restrictions == 0){
+        $comments = Comment::where('videos_id', '=', $id)->orderBy('id', 'desc')->get();
+        return view('videopage', compact('video', 'comments'));
+    }else{
+        return redirect()->back();
+    }
 });
 
 Route::get('like', [raitingController::class, 'like'])->name('liked');
 Route::get('dislike', [raitingController::class, 'dislike'])->name('disliked');
 
 Route::get('sendcomment', [sendCommentController::class, 'send'])->name('sendComment');
+
+Route::get('adminpanel', function(){
+    $videos = Video::orderBy('id', 'desc')->get();
+    return view('adminPanel', compact('videos'));
+})->name('admin');
+Route::get('statuschange',[changeStatusController::class, 'change'])->name('statusChange');
