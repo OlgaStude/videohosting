@@ -57,6 +57,18 @@
         @endguest
     </div>
 
+    @auth
+    <div>
+        <textarea id="comment" name="comment" id="" cols="30" rows="10" placeholder="ваш комментарий"></textarea>
+        <button onclick="getComment('{{ $video->id }}')" id="comment_btn">Отправить</button>
+    </div>
+    @endauth
+
+    <div id="comments">
+        @include('components.comments')
+    </div>
+    
+
     <script>
     function like(id){
         $.ajax({
@@ -113,8 +125,27 @@
             }
         })
         .fail(function(jqXHR, ajaxOpions, throwError){
+        })
+    }
+
+    function sendComment(text, video_id){
+        $.ajax({
+            url: '{{ route("sendComment") }}',
+            method: 'GET',
+            data: {text: text, video_id: video_id},
+            success: function(data){
+                $('#comments').empty().append(data);
+            console.log(data);
+            }
+        })
+        .fail(function(jqXHR, ajaxOpions, throwError){
+            console.log(data);
             $("#loading").remove();
         })
+    }
+    function getComment(video_id){
+        let text = $('#comment').val();
+        sendComment(text, video_id);
     }
     </script>
 </body>

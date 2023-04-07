@@ -4,7 +4,9 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\raitingController;
 use App\Http\Controllers\redirectController;
 use App\Http\Controllers\registrationController;
+use App\Http\Controllers\sendCommentController;
 use App\Http\Controllers\videoUploadController;
+use App\Models\Comment;
 use App\Models\Video;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -71,8 +73,11 @@ Route::get('mainpage', function(){
 
 Route::get('video/{id}', function($id){
     $video = Video::find($id);
-    return view('videopage', compact('video'));
+    $comments = Comment::where('videos_id', '=', $id)->orderBy('id', 'desc')->get();
+    return view('videopage', compact('video', 'comments'));
 });
 
 Route::get('like', [raitingController::class, 'like'])->name('liked');
 Route::get('dislike', [raitingController::class, 'dislike'])->name('disliked');
+
+Route::get('sendcomment', [sendCommentController::class, 'send'])->name('sendComment');
