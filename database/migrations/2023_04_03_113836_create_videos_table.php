@@ -21,7 +21,9 @@ class CreateVideosTable extends Migration
             $table->string('description')->nullable();
             $table->integer('likes')->nullable();
             $table->integer('dislikes')->nullable();
-            $table->timestamps();
+            $table->integer('likes_to_dislikes')->nullable();
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
             $table->string('category');
             $table->integer('restrictions');
         });

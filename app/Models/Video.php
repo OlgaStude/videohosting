@@ -18,5 +18,6 @@ class Video extends Model
         'restrictions',
         'likes',
         'dislikes',
+        'likes_to_dislikes'
     ];
 }

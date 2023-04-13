@@ -12,6 +12,7 @@ class Comment extends Model
     protected $fillable = [
         'videos_id',
         'user_name',
+        'user_id',
         'text'
     ];
 }
