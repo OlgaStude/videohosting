@@ -16,34 +16,43 @@
 </head>
 
 <body>
-    @include('components.header')
+    <div class="container">
+    <div class="navbar">
+    <div class="logo">
+        <a href="{{ route('mainPage') }}"><img src="{{ asset('storage/img/logo.png') }}"></a>
+        <p class="logo-name">FanHub</p>
+    </div>
     <div>
-        <div>
-            <img src="" alt="">
-            <p>фильмы</p>
+        <div data-category='film' class="category-item">
+            <img src="{{ asset('storage/img/film.png') }}" alt="">
+            <p>Фильмы</p>
         </div>
-        <div>
-            <img src="" alt="">
-            <p>сериалы</p>
+        <div data-category='TVseries' class="category-item">
+            <img src="{{ asset('storage/img/serial.png') }}" alt="">
+            <p>Сериалы</p>
         </div>
-        <div>
-            <img src="" alt="">
-            <p>анимация</p>
+        <div data-category='cartoon' class="category-item">
+            <img src="{{ asset('storage/img/animation.png') }}" alt="">
+            <p class="category-name1">Анимация</p>
         </div>
-        <div>
-            <img src="" alt="">
-            <p>игры</p>
+        <div data-category='game' class="category-item">
+            <img src="{{ asset('storage/img/game.png') }}" alt="">
+            <p>Игры</p>
         </div>
     </div>
-    <div id="search_container">
+    </div>
+    <div class="navbar-buttons">
+    <div class="search_container" id="search_container">
         <!-- id="searchbar", id="serch_btn", id="no_result" не менять -->
+        <img class="loup" src="{{ asset('storage/img/loup.png') }}">
         <input type="text" id="searchbar" name="search_word">
-        <button onclick="getword()" id="serch_btn">Поиск</button>
+{{--        <button onclick="getword()" id="serch_btn">Поиск</button>--}}
     </div>
     <form action="{{ route('mainPage') }}" id="no_result">
         <p>У нас такого нет</p>
-        <button>назад</button>
     </form>
+    @include('components.header')
+    </div>
     <div id="videos_container">
         @include('components.mainpagevideos')
 
@@ -84,7 +93,37 @@
                 getword();
             }
         });
+
+        $('.category-item').click(function(){
+            let search_word = $(this).data('category');
+            make_category_search(search_word);
+        })
+        function make_category_search(search_word) {
+            $.ajax({
+                    url: '{{ route("searchCategory") }}',
+                    method: 'GET',
+                    data: {
+                        search_word: search_word
+                    },
+                    success: function(data) {
+
+                        if (data.length == 0) {
+                            $('#videos_container').empty();
+                            $('#no_result').show();
+                        } else {
+                            $('#no_result').hide();
+
+                            $('#videos_container').empty().append(data);
+                        }
+
+                    }
+                })
+                .fail(function(jqXHR, ajaxOpions, throwError) {
+                    $("#loading").remove();
+                })
+        }
     </script>
+    </div>
 </body>
 
 </html>

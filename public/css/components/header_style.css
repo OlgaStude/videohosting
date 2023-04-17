@@ -1,0 +1,34 @@
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+button {
+    width: 266px;
+    height: 64px;
+    background-color: #3A3939;
+    border-radius: 32px;
+    color: #FFFFFF;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 206px;
+}
+
+.add-button {
+    font-size: 96px;
+    width: 100px;
+    height: 100px;
+    border-radius: 206px;
+}
+
+.logout {
+    width: 129px;
+    height: 64px;
+    font-size: 28px;
+}

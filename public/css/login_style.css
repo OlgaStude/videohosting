@@ -1,1 +1,86 @@
 @import url('components/header_style.css');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #2D2E30;
+}
+
+.container {
+    width: 1600px;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    color: #FFFFFF;
+    margin-top: 10%;
+    font-size: 64px;
+}
+
+p {
+    color: #FFFFFF;
+    font-size: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+input, button {
+    background-color: #3A3939;
+    border: none;
+    color: #FFFFFF;
+    border-radius: 61.5px;
+    font-size: 40px;
+}
+
+button {
+    cursor: pointer;
+}
+
+form {
+    margin-top: 5%;
+}
+
+.input-item {
+    margin-top: 5%;
+}
+
+input {
+    width: 1197px;
+    height: 123px;
+    padding: 3%;
+    margin-top: 0.5%;
+}
+
+.input-file {
+    width: 262px;
+    height: 105px;
+    font-size: 40px;
+}
+
+.auth-button {
+    margin-top: 5%;
+    width: 516px;
+    height: 123px;
+}
+
+.acc {
+    margin-top: 6%;
+}
+
+.register-button {
+    width: 305px;
+    height: 80px;
+    border-radius: 40px;
+    margin-top: 4%;
+}
+
+/*.register-button {*/
+/*    width: 567px;*/
+/*}*/

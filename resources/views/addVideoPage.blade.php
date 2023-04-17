@@ -10,38 +10,52 @@
 </head>
 
 <body>
-    @include('components.header')
+@include('components.header')
+    <div class="container">
     <h1>Загрузка видео</h1>
     <form action="{{ route('videouplaoding')}}" method="post" enctype="multipart/form-data">
         @csrf
+        <div class="input-item">
         <p>Ваше видео</p>
-        <input type="file" name="video">
+        <input type="file" name="video" alt="">
+        <br>
         @error('video')
         {{ $message }}
         @enderror
+        </div>
+        <div class="input-item">
         <p>Название видео</p>
         <input type="text" name="title">
+        <br>
         @error('title')
         {{ $message }}
         @enderror
+        </div>
+        <div class="input-item">
         <p>Описание видео</p>
-        <textarea name="description" cols="30" rows="10">Описание</textarea>
+        <textarea name="description" cols="30" rows="10"></textarea>
+        <br>
         @error('description')
         {{ $message }}
         @enderror
-        
+        </div>
+
+        <div class="input-item">
         <p>Категория видео</p>
         <select name="category">
             <option value="TVseries">Сериалы</option>
-            <option value="cartoon">Мультфильмы</option>
-            <option value="book">Книги</option>
+            <option value="cartoon">Анимация</option>
+            <option value="film">Фильмы</option>
+            <option value="game">Игры</option>
         </select>
         @if(session('success_message') !== null)
         {{ session('success_message') }}
         {{ Session::forget('success_message') }}
         @endif
-        <button type="submit">Загрузить</button>
+        </div>
+        <button class="upload-button" type="submit">Загрузить</button>
     </form>
+    </div>
 </body>
 
 </html>

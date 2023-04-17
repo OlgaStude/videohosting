@@ -10,7 +10,34 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="{{ route('mainPage') }}"><img src="{{ asset('storage/img/logo.png') }}"></a>
+                <p class="logo-name">FanHub</p>
+            </div>
+            <div>
+                <div class="category-item">
+                    <img src="{{ asset('storage/img/film.png') }}" alt="">
+                    <p>Фильмы</p>
+                </div>
+                <div class="category-item">
+                    <img src="{{ asset('storage/img/serial.png') }}" alt="">
+                    <p>Сериалы</p>
+                </div>
+                <div class="category-item">
+                    <img src="{{ asset('storage/img/animation.png') }}" alt="">
+                    <p class="category-name1">Анимация</p>
+                </div>
+                <div class="category-item">
+                    <img src="{{ asset('storage/img/game.png') }}" alt="">
+                    <p>Игры</p>
+                </div>
+            </div>
+        </div>
+    <div class="user-bar">
     @include('components.header')
+    </div>
 
     <div id="videos_container">
         @foreach($videos as $video)
@@ -39,6 +66,7 @@
             @endif
         </div>
         @endforeach
+    </div>
     </div>
 </body>
 

@@ -111,3 +111,4 @@ Route::get('adminpanel', function () {
 Route::get('statuschange', [changeStatusController::class, 'change'])->name('statusChange');
 
 Route::get('search', [searchController::class, 'search'])->name('search');
+Route::get('categorysearch', [searchController::class, 'searchCategory'])->name('searchCategory');

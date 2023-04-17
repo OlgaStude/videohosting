@@ -10,15 +10,18 @@
 </head>
 
 <body>
-    @include('components.header')
+    <div class="container">
     <h1>авторизация</h1>
     <form action="{{ route('user_login') }}" method="post" enctype="multipart/form-data">
         @csrf
+        <div class="input-item">
         <p>E-mail</p>
         <input type="text" name="email">
         @error('email')
         <p>{{ $message }}</p>
         @enderror
+        </div>
+        <div class="input-item">
         <p>Пароль</p>
         <input type="password" name="password">
         @error('password')
@@ -27,10 +30,12 @@
         @error('formError')
         <p>{{ $message }}</p>
         @enderror
-        <button type="submit">Вход</button>
+        </div>
+        <button class="auth-button" type="submit">Вход</button>
     </form>
-    <p>Нет аккаунта? Зарегистрируйтесь</p>
-    <button><a href="{{ route('login') }}">Авторизация</a></button>
+    <p class="acc">Нет аккаунта? Зарегистрируйтесь</p>
+    <button class="register-button"><a href="{{ route('register') }}">Регистрация</a></button>
+    </div>
 </body>
 
 </html>

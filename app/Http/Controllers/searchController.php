@@ -15,4 +15,13 @@ class searchController extends Controller
         ])->get();
         return view('components.mainpagevideos', compact('videos'));
     }
+
+    public function searchCategory(Request $req)
+    {
+        $videos = Video::where([
+            ['category', '=', $req->search_word],
+            ['restrictions', '=', 0]
+        ])->get();
+        return view('components.mainpagevideos', compact('videos'));
+    }
 }

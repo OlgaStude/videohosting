@@ -10,38 +10,53 @@
 </head>
 
 <body>
-    @include('components.header')
+    <div class="container">
+        <div class="logo">
+            <a href="{{ route('mainPage') }}"><img src="{{ asset('storage/img/logo.png') }}"></a>
+            <p class="logo-name">FanHub</p>
+        </div>
     <h1>Регистрация</h1>
     <form action="{{ route('user_register') }}" method="post" enctype="multipart/form-data">
         @csrf
+        <div class="input-item">
         <p>Никнейм</p>
         <input type="text" name="nikname" value="{{ old('nikname') }}">
         @error('nikname')
         <p>{{ $message }}</p>
         @enderror
+        </div>
+        <div class="input-item">
         <p>E-mail</p>
         <input type="text" name="email" value="{{ old('email') }}">
         @error('email')
         <p>{{ $message }}</p>
         @enderror
+        </div>
+        <div class="input-item">
         <p>Пароль</p>
         <input type="password" name="password">
         @error('password')
         <p>{{ $message }}</p>
         @enderror
+        </div>
+        <div class="input-item">
         <p>Подтвердите пароль</p>
         <input type="password" name="password_r">
         @error('password_r')
         <p>{{ $message }}</p>
         @enderror
-        <input type="file" name="pfp">
+        </div>
+        <div class="input-item">
+        <input class="input-file" type="file" name="pfp">
         @error('pfp')
         <p>{{ $message }}</p>
         @enderror
-        <button type="submit">Регистрация</button>
+        </div>
+        <button class="register-button" type="submit">Регистрация</button>
     </form>
-    <p>есть аккаунт? Войдите</p>
-    <button><a href="{{ route('register') }}">Регистрация</a></button>
+    <p class="acc">есть аккаунт? Войдите</p>
+    <button class="auth-button"><a href="{{ route('login') }}">Авторизация</a></button>
+    </div>
 </body>
 
 </html>
