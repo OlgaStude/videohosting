@@ -17,13 +17,13 @@ body {
 
 h1 {
     color: #FFFFFF;
-    margin-top: 10%;
-    font-size: 64px;
+    margin-top: 5%;
+    font-size: 40px;
 }
 
 p {
     color: #FFFFFF;
-    font-size: 40px;
+    font-size: 26px;
 }
 
 a {
@@ -36,7 +36,7 @@ input, button {
     border: none;
     color: #FFFFFF;
     border-radius: 61.5px;
-    font-size: 40px;
+    font-size: 18px;
 }
 
 button {
@@ -44,43 +44,57 @@ button {
 }
 
 form {
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .input-item {
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 input {
-    width: 1197px;
-    height: 123px;
-    padding: 3%;
+    width: 900px;
+    height: 50px;
+    padding: 2%;
     margin-top: 0.5%;
 }
 
 .input-file {
     width: 262px;
-    height: 105px;
-    font-size: 40px;
+    height: 50px;
+    font-size: 18px;
 }
 
 .auth-button {
-    margin-top: 5%;
-    width: 516px;
-    height: 123px;
+    margin-top: 2%;
+    width: 200px;
+    height: 50px;
 }
 
 .acc {
-    margin-top: 6%;
+    margin-top: 2%;
 }
 
 .register-button {
-    width: 305px;
-    height: 80px;
+    width: 285px;
+    height: 40px;
     border-radius: 40px;
-    margin-top: 4%;
+    margin-top: 2%;
 }
 
+.logo {
+    width: 150px;
+    text-align: center;
+    font-size: 40px;
+    color: #FBCE04;
+    position: absolute;
+    top: 2vh;
+    margin-right: 50%;
+}
+
+.logo p {
+    margin-left: 6%;
+    color: #FBCE04;
+}
 /*.register-button {*/
 /*    width: 567px;*/
 /*}*/

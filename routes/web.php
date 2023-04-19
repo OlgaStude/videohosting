@@ -80,11 +80,11 @@ Route::get('video/{id}', function ($id) {
     $user = User::find($video->users_id);
     if ($video) {
         if ($video->restrictions == 0 || $video->restrictions == 2) {
-            $comments = Comment::where('videos_id', '=', $id)->orderBy('id', 'desc')->get();
             $comments = Comment::join('users', 'users.id', '=', 'comments.user_id')
             ->where('videos_id', '=', $id)
             ->select('comments.id', 'comments.user_id', 'comments.user_name', 'comments.text', 'comments.created_at', 'users.path')
-            ->paginate(2);
+            ->orderBy('id', 'desc')
+            ->paginate(20);
             return view('videopage', compact('video', 'comments', 'user'));
         } else {
             return redirect()->back();

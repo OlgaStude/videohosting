@@ -61,6 +61,7 @@
     </div>
     @auth
     <div id="comment_div">
+    <img src="{{ asset('storage/profile_pics/'.$user->path) }}" alt="">
         <textarea id="comment" name="comment" id="" cols="30" rows="10" placeholder="ваш комментарий"></textarea>
         <button onclick="getComment('{{ $video->id }}')" id="comment_btn">Отправить</button>
         <div id="error_container"></div>
@@ -155,7 +156,6 @@
                     }
                 })
                 .fail(function(jqXHR, ajaxOpions, throwError) {
-                    console.log(data);
                 })
         }
 

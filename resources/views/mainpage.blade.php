@@ -55,7 +55,6 @@
     </div>
     <div id="videos_container">
         @include('components.mainpagevideos')
-
     </div>
 
     <script>

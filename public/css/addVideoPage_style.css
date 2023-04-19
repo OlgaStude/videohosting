@@ -23,7 +23,6 @@ p {
 h1 {
     color: #FFFFFF;
     font-size: 64px;
-    margin-top: 5%;
 }
 
 input {
@@ -40,8 +39,8 @@ input {
 
 textarea {
     margin-top: 1%;
-    width: 1197px;
-    height: 416px;
+    width: 800px;
+    height: 288px;
     border-radius: 33px;
     background-color: #3A3939;
     color: #FFFFFF;
@@ -82,4 +81,21 @@ select {
     width: 340px;
     height: 67px;
     border-radius: 67px;
+}
+
+.logout{
+    display: none;
+}
+
+.user-icon {
+    top: 4vh;
+    right: 50vh;
+}
+
+#text {
+    color: #FFFFFF;
+}
+
+.error, .success {
+    font-size: 24px;
 }

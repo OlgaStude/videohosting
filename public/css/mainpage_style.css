@@ -1,5 +1,6 @@
 @import url('components/header_style.css');
 @import url('components/mainpagevideos.css');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -51,33 +52,27 @@ body {
 
 .navbar-buttons {
     display: flex;
+    column-gap: 6%;
     position: relative;
     left: 15%;
     top: 5vh;
     width: 1400px;
 }
 
-.search_container input {
-    background-color: #3A3939;
-    width: 394px;
-    height: 64px;
-    border-radius: 32px;
+#videos_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 18%;
+    margin-top: 18%;
+}
+
+#no_result {
     color: #FFFFFF;
-    border: none;
-    padding-left: 18%;
+    position: absolute;
+    margin-top: 27%;
+    margin-left: 35%;
     font-size: 28px;
 }
 
-.loup {
-    position: relative;
-    left: 6vh;
-    top: 10%;
-}
 
-.reg-button {
-    margin-left: 50%;
-}
 
-.auth-button {
-    margin-left: 80%;
-}

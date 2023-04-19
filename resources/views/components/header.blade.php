@@ -1,10 +1,11 @@
     @auth
-        <a href="{{ route('logout') }}"><button class="logout">Выйти</button></a>
+        <a class="logout" href="{{ route('logout') }}">Выйти</a>
     @if(Auth::user()->status == 'admin')
     <a href="{{ route('admin')}} ">Админская панель</a>
     @endif
-    <a href="{{ url('userpage/'.Auth::user()->id) }}"><img class="user-icon" src="{{ asset('storage/profile_pics/'.Auth::user()->path) }}" alt=""></a>
-        <div class="add-location"><button class="add-button"><a href="{{ route('videoupload') }}">+</a></button></div>
+
+    <a class="user-icon" href="{{ url('userpage/'.Auth::user()->id) }}"><img src="{{ asset('storage/profile_pics/'.Auth::user()->path) }}" alt=""></a>
+        <div class="add-button"><a class="" href="{{ route('videoupload') }}">+</a></div>
     @endauth
     @guest
         <a href="{{ route('register') }}"><button class="reg-button">Регистрация</button></a>

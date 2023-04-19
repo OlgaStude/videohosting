@@ -10,17 +10,17 @@
 </head>
 
 <body>
-@include('components.header')
     <div class="container">
+    @include('components.header')
     <h1>Загрузка видео</h1>
     <form action="{{ route('videouplaoding')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="input-item">
         <p>Ваше видео</p>
-        <input type="file" name="video" alt="">
+        <input class="input-file" type="file" name="video" alt="">
         <br>
         @error('video')
-        {{ $message }}
+        <p class="error">{{ $message }}</p>
         @enderror
         </div>
         <div class="input-item">
@@ -28,7 +28,7 @@
         <input type="text" name="title">
         <br>
         @error('title')
-        {{ $message }}
+        <p class="error">{{ $message }}</p>
         @enderror
         </div>
         <div class="input-item">
@@ -36,7 +36,7 @@
         <textarea name="description" cols="30" rows="10"></textarea>
         <br>
         @error('description')
-        {{ $message }}
+        <p class="error">{{ $message }}</p>
         @enderror
         </div>
 
@@ -49,8 +49,8 @@
             <option value="game">Игры</option>
         </select>
         @if(session('success_message') !== null)
-        {{ session('success_message') }}
-        {{ Session::forget('success_message') }}
+        <p class="success">{{ session('success_message') }}<p>
+        <p class="success">{{ Session::forget('success_message') }}</p>
         @endif
         </div>
         <button class="upload-button" type="submit">Загрузить</button>

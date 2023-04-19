@@ -22,7 +22,7 @@
         <p>Никнейм</p>
         <input type="text" name="nikname" value="{{ old('nikname') }}">
         @error('nikname')
-        <p>{{ $message }}</p>
+        <p class="error">{{ $message }}</p>
         @enderror
         </div>
         <div class="input-item">

@@ -11,6 +11,10 @@
 
 <body>
     <div class="container">
+         <div class="logo">
+            <a href="{{ route('mainPage') }}"><img src="{{ asset('storage/img/logo.png') }}"></a>
+            <p class="logo-name">FanHub</p>
+        </div>
     <h1>авторизация</h1>
     <form action="{{ route('user_login') }}" method="post" enctype="multipart/form-data">
         @csrf

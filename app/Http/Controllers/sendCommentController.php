@@ -12,8 +12,12 @@ class sendCommentController extends Controller
     {
         if (isset($req->video_id)) {
             Comment::create(['videos_id' => $req->video_id, 'user_name' => Auth::user()->nikname, 'user_id' => Auth::user()->id, 'text' => $req->text]);
-            $comments = Comment::where('videos_id', '=', $req->video_id)->orderBy('id', 'desc')->get();
-            return view('components.comments', compact('comments'));
+            $comments = Comment::join('users', 'users.id', '=', 'comments.user_id')
+            ->where('videos_id', '=', $req->video_id)
+            ->select('comments.id', 'comments.user_id', 'comments.user_name', 'comments.text', 'comments.created_at', 'users.path')
+            ->paginate(20);
+            $view = view('components.comments', compact('comments'));
+            return $view;
         } else {
             return redirect()->back();
         }
