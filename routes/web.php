@@ -71,7 +71,7 @@ Route::post('addvideo', [videoUploadController::class, 'upload'])->name('videoup
 
 Route::get('mainpage', function () {
     Artisan::call('storage:link');
-    $videos = Video::where('restrictions', '=', '0')->orderBy('id', 'desc')->paginate(10);
+    $videos = Video::where('restrictions', '=', '0')->orderBy('id', 'desc')->paginate(12);
     return view('mainpage', compact('videos'));
 })->name('mainPage');
 
