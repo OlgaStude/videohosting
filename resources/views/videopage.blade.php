@@ -32,27 +32,27 @@
             ])->exists())
             <!-- id и class не меняй, но можешь добавлять новые классы  начиная отсюда-->
             <!-- между button и span никаких элементов не вставляй -->
-            <button onclick="like('{{ $video->id }}')" class="active" id="likes">понравилось</button>
+            <img onclick="like('{{ $video->id }}')" class="active" id="likes" src="{{ asset('storage/img/like.png') }}">
             @else
-            <button onclick="like('{{ $video->id }}')" class="not_active" id="likes">понравилось</button>
+            <img onclick="like('{{ $video->id }}')" class="not_active" id="likes" src="{{ asset('storage/img/like.png') }}">
             @endif
             <span>{{ $video->likes }}</span>
             @if(App\Models\Dislike::where([
             ['users_id', '=', Auth::user()->id],
             ['videos_id', '=', $video->id],
             ])->exists())
-            <button onclick="dislike('{{ $video->id }}')" class="active" id="dislikes">не понравилось</button>
+            <img onclick="dislike('{{ $video->id }}')" class="active" id="dislikes" src="{{ asset('storage/img/like.png') }}">
             @else
-            <button onclick="dislike('{{ $video->id }}')" class="not_active" id="dislikes">не понравилось</button>
+            <img onclick="dislike('{{ $video->id }}')" class="not_active" id="dislikes" src="{{ asset('storage/img/like.png') }}">
             @endif
             <span>{{ $video->dislikes }}</span>
         </div>
         @endauth
         @guest
         <div id="raiting">
-            <button id="likes">понравилось</button>
+            <img  id="likes" src="{{ asset('storage/img/like.png') }}">
             <span>{{ $video->likes }}</span>
-            <button id="dislikes">не понравилось</button>
+            <img  id="dislikes" src="{{ asset('storage/img/like.png') }}">
             <span>{{ $video->dislikes }}</span>
         </div>
         @endguest
