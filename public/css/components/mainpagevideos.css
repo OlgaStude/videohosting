@@ -3,7 +3,6 @@ video {
     height: 240px;
     border-radius: 15px;
     background-color: #000000;
-
 }
 
 
@@ -20,5 +19,32 @@ video {
 .date {
     margin-top: 5%;
     font-size: 26px;
-    color: #FFFFFF;
+    color: #867D7D;
+}
+
+@media (max-width: 375px) {
+
+video {
+    width: 375px;
+    height: 253px;
+    background-color: #000000;
+}
+
+.video {
+    margin-top: 10%;
+    width: 375px;
+    overflow: hidden;
+}
+
+.video-name {
+    margin-left: 3%;
+    margin-top: 2%;
+    font-size: 24px;
+}
+
+.date {
+    margin-left: 3%;
+    margin-top: 2%;
+    font-size: 16px;
+}
 }

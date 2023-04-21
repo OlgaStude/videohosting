@@ -22,17 +22,17 @@
         <p>E-mail</p>
         <input type="text" name="email">
         @error('email')
-        <p>{{ $message }}</p>
+        <p class="error">{{ $message }}</p>
         @enderror
         </div>
         <div class="input-item">
         <p>Пароль</p>
         <input type="password" name="password">
         @error('password')
-        <p>{{ $message }}</p>
+        <p class="error">{{ $message }}</p>
         @enderror
         @error('formError')
-        <p>{{ $message }}</p>
+        <p class="error">{{ $message }}</p>
         @enderror
         </div>
         <button class="auth-button" type="submit">Вход</button>

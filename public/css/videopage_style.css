@@ -1,10 +1,324 @@
 @import url('components/header_style.css');
 @import url('components/comments_style.css');
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    width: 1600px;
+    margin-left: 5%;
+}
+
+body {
+    background-color: #2D2E30;
+}
+
 .active {
-    background-color: red;
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
 }
 
 .not_active {
-    background-color: grey;
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+}
+
+.logo {
+    width: 150px;
+    text-align: center;
+    font-size: 40px;
+    position: absolute;
+    top: 2vh;
+    margin-right: 50%;
+}
+
+.logo p {
+    margin-left: 6%;
+    color: #FBCE04;
+}
+
+video {
+	width: 1510px;
+	height: 994px;
+	background-color: #000000;
+}
+
+.video-panel {
+	margin-top: 15%;
+}
+
+.title {
+	margin-top: 1%;
+	font-size: 40px;
+	color: #FFFFFF;
+}
+
+.date {
+	font-size: 24px;
+	color: #867D7D;
+	margin-top: 1%;
+}
+
+#author {
+	margin-top: 3%;
+	display: flex;
+	font-size: 40px;
+	color: #FFFFFF;
+}
+
+.author-name {
+	margin-top: 1.5%;
+	margin-left: 2%;
+}
+
+.inscryption {
+	font-size: 40px;
+	color: #FFFFFF;
+	margin-top: 3%;
+}
+
+#comment {
+	color: #867D7D;
+	font-size: 28px;
+	background: transparent;
+	border: none;
+	border-bottom: 5px solid #3A3939;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	width: 1385px;
+	padding-bottom: 1.5%;
+	padding-right: 15%;
+	margin-left: 7%;
+	margin-top: 2%;
+	outline: none;
+	outline-offset: 0;
+}
+
+#comment_btn {
+	position: absolute;
+	font-size: 24px;
+	width: 198px;
+	height: 64px;
+	margin-left: -12%;
+	margin-top: 1%;
+}
+
+#raiting {
+	position: relative;
+	top: -18vh;
+	left: 117vh;
+	width: 333px;
+	height: 64px;
+	background-color: #3A3939;
+	border-radius: 82px;
+}
+
+span {
+	font-size: 24px;
+	color: #FFFFFF;
+}
+
+.logout {
+    width: 129px;
+    height: 64px;
+    font-size: 28px;
+    background-color: #3A3939;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 15px;
+    border-radius: 32px;
+}
+
+#raiting  span {
+	position: relative;
+	bottom: 1vh;
+	left: 1vh;
+}
+
+#likes {
+	margin-left: 10%;
+	cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+}
+
+#dislikes {
+	margin-left: 40%;
+	margin-top: 5%;
+	cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+}
+
+.comment-aang {
+	position: absolute;
+}
+
+@media (max-width: 376px) {
+
+.container {
+    width: 375px;
+    margin: auto;
+	overflow: hidden;
+}
+
+.logo {
+    width: 51px;
+    height: 51px;
+    text-align: center;
+    font-size: 40px;
+    position: absolute;
+    margin-right: 50%;
+}
+
+.logo img {
+    width: 51px;
+    height: 51px;
+}
+
+.logo p {
+    margin-left: 4%;
+    color: #FBCE04;
+    font-size: 15px;
+}
+
+.video-panel {
+	margin-top: 30%;
+}
+
+video {
+	width: 375px;
+	height: 253px;
+	background-color: #000000;
+}
+
+.title {
+	margin-top: 1%;
+	font-size: 20px;
+	color: #FFFFFF;
+	margin-left: 3%;
+}
+
+.date {
+	font-size: 16px;
+	color: #867D7D;
+	margin-top: 2%;
+	margin-left: 3%;
+}
+
+#author {
+	margin-top: 5%;
+	margin-left: 3%;
+}
+
+#author img {
+    width: 50px;
+    height: 50px;    
+}
+
+.author-name {
+	margin-top: 3%;
+	margin-left: 4%;
+	font-size: 20px;
+}
+
+.inscryption {
+	font-size: 16px;
+	color: #FFFFFF;
+	margin-top: 5%;
+	margin-left: 4%;
+	margin-right: 12%;
+}
+
+#raiting {
+	position: relative;
+	top: -14vh;
+	left: 33vh;
+	width: 131px;
+	height: 25px;
+	background-color: #3A3939;
+	border-radius: 82px;
+}
+
+span {
+	font-size: 10px;
+	color: #FFFFFF;
+}
+
+#likes {
+	margin-left: 10%;
+	cursor: pointer;
+    width: 14px;
+    height: 15px;
+    border-radius: 0;
+    margin-bottom: 1%;
+}
+
+#dislikes {
+	margin-left: 30%;
+	margin-top: 4%;
+	cursor: pointer;
+    width: 14px;
+    height: 15px;
+    border-radius: 0;
+}
+
+#comment {
+	color: #867D7D;
+	font-size: 10px;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #3A3939;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	width: 279px;
+	padding-bottom: 1.5%;
+	padding-right: 25%;
+	margin-left: 17%;
+	margin-top: 7%;
+	outline: none;
+	outline-offset: 0;
+}
+
+#comment_btn {
+	position: absolute;
+	font-size: 10px;
+	width: 68px;
+	height: 25px;
+	margin-left: -18%;
+	margin-top: 4%;
+}
+.comment-img img{
+	width: 60px;
+	height: 60px;
+}
+
+.comment-aang {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 2%;
+}
+
+#comments {
+	margin-top: 15%;
+}
+
+.active {
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+}
+
+.not_active {
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+}
 }

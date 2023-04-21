@@ -1,1 +1,289 @@
 @import url('components/header_style.css');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #2D2E30;
+}
+
+#container {
+    width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    width: 150px;
+    text-align: center;
+    font-size: 40px;
+    color: #FBCE04;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 2vh;
+}
+
+.navbar {
+    background-color: #3A3939;
+    width: 214px;
+    position: fixed;
+    height: 950px;
+}
+
+.category-item {
+    margin-top: 20%;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 28px;
+    color: #FFFFFF;
+}
+
+.category-name1 {
+    position: relative;
+    right: 15%;
+}
+
+.navbar-buttons {
+    display: flex;
+    position: relative;
+    left: 15%;
+    top: 5vh;
+    width: 1400px;
+}
+
+.admin-bar a {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.admin-bar {
+    position: relative;
+    display: flex;
+    margin-left: 20%;
+    top: 5vh;
+}
+
+.user-icon {
+    position: relative;
+    left: 110vh;
+}
+
+.logout {
+    position: relative;
+    left: 100vh;
+    top: -2vh;
+}
+
+.add-button {
+	left: 20%;
+}
+
+.videos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 18%;
+    margin-top: 18%;
+    margin-bottom: 20px;
+}
+
+video {
+    width: 390px;
+    height: 240px;
+    border-radius: 15px;
+    background-color: #000000;
+}
+
+.video {
+    width: 390px;
+    overflow: hidden;
+}
+
+.date {
+    color: #FFFFFF;
+    font-size: 24px;
+    margin-top: 4%;
+}
+
+.title-name {
+    font-size: 32px;
+    margin-top: 3%;
+}
+
+.restrict_btn {
+	margin-top: 5%;
+	margin-left: 10%;
+}
+
+select {
+	margin-top: 5%;
+	margin-left: 10%;
+    width: 266px;
+    height: 64px;
+    background-color: #3A3939;
+    border-radius: 32px;
+    color: #FFFFFF;
+    border: none;
+    font-size: 28px;
+}
+
+@media (max-width: 376px) {
+    #container {
+        width: 375px;
+        margin-left: 0%;
+}
+footer{
+    height: 70px;
+}
+    .video, video {
+        width: 375px;
+        overflow: hidden;
+    }
+
+    .logo {
+        width: 51px;
+        height: 51px;
+        text-align: center;
+        font-size: 40px;
+        position: absolute;
+        top: -13vh;
+        margin-right: 50%;
+    }
+
+    .logo img {
+        width: 51px;
+        height: 51px;
+    }
+
+    .logo p {
+        margin-left: 4%;
+        color: #FBCE04;
+        font-size: 15px;
+    }
+
+.navbar {
+    background-color: #3A3939;
+    width: 375px;
+    position: relative;
+    height: 100px;
+    top: 15vh;
+    margin-left: 0;
+    z-index: 100px;
+}
+
+.category-item {
+    margin-top: 20%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
+.category-name1 {
+    position: relative;
+    right: 5%;
+}
+
+.category-item img {
+    width: 50px;
+    height: 50px;
+}
+
+.category-div {
+    display: flex;
+    position: relative;
+    top: -9vh;
+    right: 1vh;
+}
+
+.admin-button {
+    width: 90px;
+    height: 20px;
+    font-size: 8px;
+    border-radius: 15px;
+    right: 93vh;
+    padding: 1%;
+    padding-top: 7px;
+    top: 3%;
+}
+
+.admin-bar {
+    position: relative;
+    display: flex;
+    right: 82vh;
+    top: -10vh;
+}
+
+button, option{
+    font-size: 20px;
+}
+
+.logout {
+    position: relative;
+    width: 78px;
+    height: 40px;
+    padding: 1%;
+    padding-top: 7px;
+    border-radius: 30px;
+    margin-left: 0%;
+    font-size: 20px;
+}
+
+.user-icon {
+    position: relative;
+    left: 107vh;
+}
+
+.videos-container {
+    display: block;
+    margin-top: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    width: 375px;
+}
+
+.title-name {
+    font-size: 24px;
+}
+
+.date {
+    font-size: 16px;
+}
+
+.title-name, .date {
+    margin-left: 4%;
+}
+
+select, button {
+    margin-top: 5%;
+    margin-left: 35%;
+    width: 220px;
+    height: 30px;
+    background-color: #3A3939;
+    border-radius: 32px;
+    color: #FFFFFF;
+    border: none;
+    font-size: 18px;
+}
+
+.restrict_btn {
+    position: absolute;
+    margin-top: 20%;
+    margin-left: -58%;
+    width: 220px;
+    height: 30px;
+    margin-bottom: 50px;
+}
+
+.video {
+    margin-top: 25%;
+}
+
+body{
+}
+}

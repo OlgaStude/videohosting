@@ -112,3 +112,5 @@ Route::get('statuschange', [changeStatusController::class, 'change'])->name('sta
 
 Route::get('search', [searchController::class, 'search'])->name('search');
 Route::get('categorysearch', [searchController::class, 'searchCategory'])->name('searchCategory');
+Route::get('categorysearchuser', [searchController::class, 'searchCategoryUser'])->name('searchCategoryUser');
+Route::get('categorysearchadmin', [searchController::class, 'searchCategoryAdmin'])->name('searchCategoryAdmin');

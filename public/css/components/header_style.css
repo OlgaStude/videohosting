@@ -14,6 +14,11 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    color: #FBCE04;
+    background-color: #363636;
+}
+
 img {
     width: 100px;
     height: 100px;
@@ -32,8 +37,34 @@ img {
     text-align: center;
 }
 
+.add-button:hover {
+    background-color: #363636;
+}
+
+.add-button a:hover {
+    color: #FBCE04;
+}
+
 .logout {
     width: 129px;
+    height: 64px;
+    font-size: 28px;
+    background-color: #3A3939;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 1%;
+    border-radius: 32px;
+}
+
+.logout:hover {
+    color: #FBCE04;
+    background-color: #363636;
+}
+
+
+.admin-button {
+    position: absolute;
+    width: 240px;
     height: 64px;
     font-size: 28px;
     background-color: #3A3939;
@@ -46,11 +77,7 @@ img {
 .user-icon {
     position: relative;
     top: -2vh;
-    left: 50vh;
-}
-
-.auth-buttons {
-    margin-left: 20%;
+    left: 60vh;
 }
 
 .search_container input {
@@ -78,4 +105,110 @@ img {
     left: 50vh;
 }
 
+@media (max-width: 376px) {
 
+button {
+    width: 68px;
+    height: 20px;
+    background-color: #3A3939;
+    border-radius: 32px;
+    color: #FFFFFF;
+    border: none;
+    font-size: 8px;
+    cursor: pointer;
+}
+
+.search_container input {
+    background-color: #3A3939;
+    width: 162px;
+    height: 20px;
+    border-radius: 15px;
+    color: #FFFFFF;
+    border: none;
+    font-size: 8px;
+    position: relative;
+    top: -20px;
+    left: 3vh;
+}
+.search_container img{
+    top: 4px;
+    left: 4vh;
+    z-index: 100;
+}
+
+.loup {
+    position: relative;
+    top: 5vh;
+    width: 10px;
+    height: 10px;
+    border-radius: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.regg-button {
+    position: relative;
+    right: 22vh;
+}
+
+.authh-button {
+    position: relative;
+    right: 21vh;    
+}
+
+.logout {
+    width: 68px;
+    height: 20px;
+    font-size: 8px;
+    background-color: #3A3939;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 3%;
+}
+
+.user-icon {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -2vh;
+    left: 8vh;
+}
+
+.user-icon img {
+    width: 50px;
+    height: 50px;    
+}
+
+.add-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #3A3939;
+    position: absolute;
+    top: 28vh;
+    right: 8vh;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.add-button-a {
+    position: relative;
+    height: 20px;
+}
+
+.admin-button {
+    position: absolute;
+    width: 240px;
+    height: 64px;
+    font-size: 28px;
+    background-color: #3A3939;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 15px;
+    border-radius: 32px;
+}
+}

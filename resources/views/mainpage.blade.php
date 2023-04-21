@@ -8,11 +8,6 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <link href="{{ asset('css/mainpage_style.css') }}" rel="stylesheet">
     <title>Главная</title>
-    <style>
-        #no_result {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -22,7 +17,7 @@
         <a href="{{ route('mainPage') }}"><img src="{{ asset('storage/img/logo.png') }}"></a>
         <p class="logo-name">FanHub</p>
     </div>
-    <div>
+    <div class="category-div">
         <div data-category='film' class="category-item">
             <img src="{{ asset('storage/img/film.png') }}" alt="">
             <p>Фильмы</p>
@@ -76,6 +71,7 @@
                             $('#videos_container').empty();
                             $('#no_result').show();
                         } else {
+                            $('#no_result').hide();
                             $('#videos_container').empty().append(data);
                         }
 
@@ -121,6 +117,7 @@
                     $("#loading").remove();
                 })
         }
+
     </script>
     </div>
 </body>

@@ -14,16 +14,20 @@
 </head>
 
 <body>
-    @include('components.header')
-
-    <div id="container">
+    <div class="container" id="container">
+        <div class="logo">
+                <a href="{{ route('mainPage') }}"><img src="{{ asset('storage/img/logo.png') }}"></a>
+                <p class="logo-name">FanHub</p>
+        </div>
+        <div class="video-panel">
         <video src="{{ asset('storage/videos/'.$video->path) }}" controls='true'></video>
-        <p>{{ $video->title }}</p>
-        <p>{{ \Carbon\Carbon::parse($video->created_at)->format('d.m.Y H:m') }}</p>
+        <p class="title">{{ $video->title }}</p>
+        <p class="date">{{ \Carbon\Carbon::parse($video->created_at)->format('d.m.Y H:m') }}</p>
         <div id="author">
             <img src="{{ asset('storage/profile_pics/'.$user->path) }}" alt="">
-            <p>{{ $user->nikname}}</p>
+            <p class="author-name">{{ $user->nikname}}</p>
         </div>
+        <p class="inscryption">{{ $video->description }}</p>
         @auth
         <div id="raiting">
             @if(App\Models\Like::where([
@@ -32,7 +36,7 @@
             ])->exists())
             <!-- id и class не меняй, но можешь добавлять новые классы  начиная отсюда-->
             <!-- между button и span никаких элементов не вставляй -->
-            <img onclick="like('{{ $video->id }}')" class="active" id="likes" src="{{ asset('storage/img/like.png') }}">
+            <img onclick="like('{{ $video->id }}')" class="active" id="likes" src="{{ asset('storage/img/like-active.png') }}">
             @else
             <img onclick="like('{{ $video->id }}')" class="not_active" id="likes" src="{{ asset('storage/img/like.png') }}">
             @endif
@@ -41,29 +45,27 @@
             ['users_id', '=', Auth::user()->id],
             ['videos_id', '=', $video->id],
             ])->exists())
-            <img onclick="dislike('{{ $video->id }}')" class="active" id="dislikes" src="{{ asset('storage/img/like.png') }}">
+            <img onclick="dislike('{{ $video->id }}')" class="active" id="dislikes" src="{{ asset('storage/img/dislike-active.png') }}">
             @else
-            <img onclick="dislike('{{ $video->id }}')" class="not_active" id="dislikes" src="{{ asset('storage/img/like.png') }}">
+            <img onclick="dislike('{{ $video->id }}')" class="not_active" id="dislikes" src="{{ asset('storage/img/dislike.png') }}">
             @endif
-            <span>{{ $video->dislikes }}</span>
+            <span class="dislike-num">{{ $video->dislikes }}</span>
         </div>
         @endauth
         @guest
         <div id="raiting">
-            <img  id="likes" src="{{ asset('storage/img/like.png') }}">
+            <img id="likes" src="{{ asset('storage/img/like.png') }}">
             <span>{{ $video->likes }}</span>
-            <img  id="dislikes" src="{{ asset('storage/img/like.png') }}">
+            <img id="dislikes" src="{{ asset('storage/img/dislike.png') }}">
             <span>{{ $video->dislikes }}</span>
         </div>
         @endguest
-        <p>{{ $video->description }}</p>
-        
-    </div>
+        </div>
     @auth
     <div id="comment_div">
-    <img src="{{ asset('storage/profile_pics/'.$user->path) }}" alt="">
-        <textarea id="comment" name="comment" id="" cols="30" rows="10" placeholder="ваш комментарий"></textarea>
-        <button onclick="getComment('{{ $video->id }}')" id="comment_btn">Отправить</button>
+        <img class="comment-aang" src="{{ asset('storage/profile_pics/'.$user->path) }}" alt="">
+        <input id="comment" name="comment" id="" cols="30" rows="10" placeholder="Введите комментарий">
+        <button onclick="getComment('{{ $video->id }}')" id="comment_btn">Добавить</button>
         <div id="error_container"></div>
     </div>
     @endauth
@@ -71,6 +73,7 @@
     <div id="comments">
         @include('components.comments')
     </div>
+</div>
 <!-- и до сюда -->
 
 
@@ -84,7 +87,7 @@
                     },
                     success: function(data) {
                         console.log(data);
-                        if ($('#dislikes').hasClass('active')) {
+                        if ($('#dislikes').attr('src', "{{ asset('storage/img/dislike-active.png') }}")) {
                             let dislikes = $('#dislikes').next().html();
                             if (dislikes != 0) {
                                 dislikes--;
@@ -94,11 +97,11 @@
                         let likes = $('#likes').next().html();
                         if (data == 1) {
                             likes++;
-                            $('#likes').removeClass('not_active').addClass('active');
-                            $('#dislikes').removeClass('active').addClass('not_active');
+                            $('#likes').attr('src', "{{ asset('storage/img/like-active.png') }}");
+                            $('#dislikes').attr('src', "{{ asset('storage/img/dislike.png') }}");
                         } else {
                             likes--;
-                            $('#likes').removeClass('active').addClass('not_active');
+                            $('#likes').attr('src', "{{ asset('storage/img/like.png') }}");
                         }
                         $('#likes').next().html(likes);
 
@@ -118,7 +121,7 @@
                         id: id
                     },
                     success: function(data) {
-                        if ($('#likes').hasClass('active')) {
+                        if ($('#likes').attr('src', "{{ asset('storage/img/like-active.png') }}")) {
                             let likes = $('#likes').next().html();
                             if (likes != 0) {
                                 likes--;
@@ -128,11 +131,11 @@
                         let dislikes = $('#dislikes').next().html();
                         if (data == 1) {
                             dislikes++;
-                            $('#dislikes').removeClass('not_active').addClass('active');
-                            $('#likes').removeClass('active').addClass('not_active');
+                            $('#dislikes').attr('src', "{{ asset('storage/img/dislike-active.png') }}");
+                            $('#likes').attr('src', "{{ asset('storage/img/like.png') }}");
                         } else {
                             dislikes--;
-                            $('#dislikes').removeClass('active').addClass('not_active');
+                            $('#dislikes').attr('src', "{{ asset('storage/img/dislike.png') }}");
                         }
                         $('#dislikes').next().html(dislikes);
 
@@ -156,6 +159,7 @@
                     }
                 })
                 .fail(function(jqXHR, ajaxOpions, throwError) {
+                    console.log(data);
                 })
         }
 
