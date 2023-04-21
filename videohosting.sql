@@ -1,15 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 21 2023 г., 23:08
--- Версия сервера: 8.0.29
--- Версия PHP: 8.1.5
+-- Время создания: Апр 22 2023 г., 00:32
+-- Версия сервера: 8.0.30
+-- Версия PHP: 8.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- База данных: `videohosting`
@@ -25,11 +31,22 @@ CREATE TABLE `comments` (
   `id` bigint UNSIGNED NOT NULL,
   `videos_id` bigint UNSIGNED NOT NULL,
   `user_id` int NOT NULL,
-  `user_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `videos_id`, `user_id`, `user_name`, `text`, `created_at`, `updated_at`) VALUES
+(1, 2, 3, 'T-1000', 'Несомненно, одна из моих лучших ролей, но стоило ли это добавлять в учебный проект?', '2023-04-21 22:12:46', '2023-04-21 22:12:46'),
+(2, 2, 4, 'T-1000 Hesus', 'Не вижу в этом ничего плохого.', '2023-04-21 22:14:54', '2023-04-21 22:14:54'),
+(5, 2, 3, 'T-1000', 'Ещё бы ты видел что-то плохое. Напомнить события второй части?', '2023-04-21 22:19:43', '2023-04-21 22:19:43'),
+(6, 3, 5, 'SANSara', 'помню как записывали этот ролик. холод пробирал до КОСТЕЙ', '2023-04-21 22:27:48', '2023-04-21 22:27:48'),
+(7, 3, 6, 'Papyrus', 'Я НАДЕЯЛСЯ ЧТО ХОТЯ БЫ ЗДЕСЬ ТЫ НЕ БУДЕШЬ ДЕМОНСТРИРОВАТЬ ВСЕМ СВОЙ УЖАСНЫЙ ЮМОР!!!', '2023-04-21 22:29:50', '2023-04-21 22:29:50');
 
 -- --------------------------------------------------------
 
@@ -60,11 +77,11 @@ INSERT INTO `dislikes` (`id`, `users_id`, `videos_id`, `created_at`, `updated_at
 
 CREATE TABLE `failed_jobs` (
   `id` bigint UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -99,7 +116,7 @@ INSERT INTO `likes` (`id`, `users_id`, `videos_id`, `created_at`, `updated_at`) 
 
 CREATE TABLE `migrations` (
   `id` int UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -124,8 +141,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -137,11 +154,11 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -155,12 +172,12 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
-  `nikname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nikname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -171,7 +188,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `nikname`, `email`, `password`, `path`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Persona4_5', 'user@mail.com', '$2y$10$VP8VpLFYyvNSHTtNgHYR0.sbojBmzNgtnusv.NfiFLfAhHv7Cz78q', 'TqbLALM8RETHLvxrUYGwBYAyDrRH6TQ9pWXQE6GM.jpg', 'user', NULL, '2023-04-21 20:29:15', '2023-04-21 20:29:15'),
-(2, 'MadWithpower', 'admin@mail.com', '$2y$10$bun/PKBq/NR3DTxRa1M56uunsUOAM3CWdb7.KzWmUlwfqlKwsIi9G', '1IzU6Xrz6rfflEYgN1qNyw4MYzySZmMzSKiFPj52.jpg', 'admin', NULL, '2023-04-21 21:02:04', '2023-04-21 21:02:04');
+(2, 'MadWithpower', 'admin@mail.com', '$2y$10$bun/PKBq/NR3DTxRa1M56uunsUOAM3CWdb7.KzWmUlwfqlKwsIi9G', '1IzU6Xrz6rfflEYgN1qNyw4MYzySZmMzSKiFPj52.jpg', 'admin', NULL, '2023-04-21 21:02:04', '2023-04-21 21:02:04'),
+(3, 'T-1000', 'terminator@mail.ru', '$2y$10$tHdnk4w26hlOkWsVXkAWYOItdg02YEBFSelTWkGONeadqELBF6br6', 'vLvLPrM0cmjvu8QcQJEOWjFZjilCg0qomSRAeS0a.jpg', 'user', NULL, '2023-04-21 22:06:03', '2023-04-21 22:06:03'),
+(4, 'T-1000 Hesus', 'teremnator@gmail.com', '$2y$10$9m4gAoPKMve1WSl4u625geCPAE7agNB49fM4lUmdrpqcexTfvGmEe', 'q45eg8NxFtbghwxuw2eRrrtVAxYo6sQtXBLZdSUf.jpg', 'user', NULL, '2023-04-21 22:11:08', '2023-04-21 22:11:08'),
+(5, 'SANSara', 'sanes@mail.ru', '$2y$10$NH8hQUvxTPh4xmrZDK1SaeeQTmQ43Ld08f5DNuoT1ag9ssWt/bb9e', 'bXXGQaPty0SCtkBu7TUYqrMHxg9jPsjcWawSZofj.png', 'user', NULL, '2023-04-21 22:26:01', '2023-04-21 22:26:01'),
+(6, 'Papyrus', 'pappy@yandex.ru', '$2y$10$AU/gcMhv2Ff.ecVfxXJqiOVGc.0krGdT7F.bR.gqKay/rYtkONuZm', 'j0CyqTOje5Sv8iakUgwH8MWF4WwCpKuiKkjRROyo.png', 'user', NULL, '2023-04-21 22:28:38', '2023-04-21 22:28:38');
 
 -- --------------------------------------------------------
 
@@ -182,15 +203,15 @@ INSERT INTO `users` (`id`, `nikname`, `email`, `password`, `path`, `status`, `re
 CREATE TABLE `videos` (
   `id` bigint UNSIGNED NOT NULL,
   `users_id` bigint UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `likes` int DEFAULT NULL,
   `dislikes` int DEFAULT NULL,
   `likes_to_dislikes` int DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `category` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `restrictions` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -287,7 +308,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `dislikes`
@@ -323,7 +344,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `videos`
@@ -361,3 +382,7 @@ ALTER TABLE `likes`
 ALTER TABLE `videos`
   ADD CONSTRAINT `videos_users_id_foreign` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`);
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
